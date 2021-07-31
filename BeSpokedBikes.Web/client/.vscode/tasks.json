@@ -7,7 +7,7 @@
 			"group": "build",
 			"problemMatcher": [],
 			"label": "npm: build",
-			"detail": "env-cmd -f .env.development.local npm run build"
+			"detail": "env-cmd -f .env.development npm run build"
 		}
 	]
 }
