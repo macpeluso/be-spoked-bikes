@@ -27,7 +27,9 @@ jobs:
       run: dotnet build --configuration Release
 
     - name: dotnet publish
-      run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/BeSpokedBikes /p:CI=false
+      run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/BeSpokedBikes 
+      env:
+         CI: ""
 
     - name: Run Azure webapp deploy action using publish profile credentials
       uses: azure/webapps-deploy@v2
