@@ -27,7 +27,6 @@
   },
   "include": [
     "src",
-    "./typings-custom/**/*.ts"
   ],
   "exclude": [
     "node_modules"

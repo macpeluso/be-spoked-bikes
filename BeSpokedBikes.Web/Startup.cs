@@ -21,10 +21,13 @@ namespace BeSpokedBikes.Web
         public void ConfigureServices(IServiceCollection services)
         {
 
-            services.AddControllersWithViews();
+            services.AddMvc(opt =>
+            {
+                opt.EnableEndpointRouting = false;
+            });
 
-            // In production, the React files will be served from this directory
-            services.AddSpaStaticFiles(configuration =>
+                // In production, the React files will be served from this directory
+                services.AddSpaStaticFiles(configuration =>
             {
                 configuration.RootPath = "client/build";
             });
@@ -33,10 +36,7 @@ namespace BeSpokedBikes.Web
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
+            if (env.IsDevelopment()) app.UseDeveloperExceptionPage();           
             else
             {
                 app.UseExceptionHandler("/Error");
@@ -44,28 +44,19 @@ namespace BeSpokedBikes.Web
                 app.UseHsts();
             }
 
-            app.UseHttpsRedirection();
-            app.UseStaticFiles();
-            app.UseSpaStaticFiles();
+            if (env.IsDevelopment()) app.UseStaticFiles();
 
-            app.UseRouting();
-
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllerRoute(
-                    name: "default",
-                    pattern: "{controller}/{action=Index}/{id?}");
-            });
+            app.UseMvc();
 
             app.UseSpa(spa =>
             {
-                spa.Options.SourcePath = "ClientApp";
+                spa.Options.SourcePath = "client";
 
-                if (env.IsDevelopment())
-                {
-                    spa.UseReactDevelopmentServer(npmScript: "start");
-                }
+                if (env.IsDevelopment()) spa.UseReactDevelopmentServer(npmScript: "start");               
             });
+
+            app.UseHttpsRedirection();
+
         }
     }
 }
