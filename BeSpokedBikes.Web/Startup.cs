@@ -10,9 +10,14 @@ namespace BeSpokedBikes.Web
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        public Startup(IWebHostEnvironment env)
         {
-            Configuration = configuration;
+            IConfigurationBuilder builder = new ConfigurationBuilder()
+                .SetBasePath(env.ContentRootPath)
+                .AddJsonFile($"appsettings.json", false)
+                .AddEnvironmentVariables();
+
+            this.Configuration = builder.Build();
         }
 
         public IConfiguration Configuration { get; }
@@ -26,25 +31,38 @@ namespace BeSpokedBikes.Web
                 opt.EnableEndpointRouting = false;
             });
 
-                // In production, the React files will be served from this directory
-                services.AddSpaStaticFiles(configuration =>
+            // In production, the React files will be served from this directory
+            services.AddSpaStaticFiles(configuration =>
+        {
+            configuration.RootPath = "client/build";
+        });
+
+            services.AddCors(opt =>
             {
-                configuration.RootPath = "client/build";
+                opt.AddPolicy("CorsPolicy", policy =>
+                {
+                    policy
+                        .AllowAnyHeader()
+                        .AllowAnyMethod()
+                        .AllowAnyOrigin()
+                        .WithExposedHeaders("WWW-Authenticate");
+                });
             });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            if (env.IsDevelopment()) app.UseDeveloperExceptionPage();           
-            else
-            {
-                app.UseExceptionHandler("/Error");
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-                app.UseHsts();
-            }
+            if (env.IsDevelopment())  app.UseDeveloperExceptionPage();       
+            else app.UseHsts();
+            
+            string pathBase = this.Configuration["PATH_BASE"];
 
-            if (env.IsDevelopment()) app.UseStaticFiles();
+            if (!string.IsNullOrEmpty(pathBase)) app.UsePathBase(pathBase);
+
+            app.UseCors("CorsPolicy");
+
+            app.UseStaticFiles();
 
             app.UseMvc();
 
@@ -52,7 +70,7 @@ namespace BeSpokedBikes.Web
             {
                 spa.Options.SourcePath = "client";
 
-                if (env.IsDevelopment()) spa.UseReactDevelopmentServer(npmScript: "start");               
+                if (env.IsDevelopment()) spa.UseReactDevelopmentServer(npmScript: "start");
             });
 
             app.UseHttpsRedirection();

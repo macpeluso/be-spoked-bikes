@@ -20,8 +20,7 @@ namespace BeSpokedBikes.Web
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
-                    webBuilder.UseStartup<Startup>()
-                    .UseIIS();
+                    webBuilder.UseStartup<Startup>();
                 });
     }
 }

@@ -2,18 +2,18 @@ import React from "react";
 import * as serviceWorker from "./serviceWorker";
 
 import ReactDOM from "react-dom";
-import { Router } from "react-router-dom";
+import { BrowserRouter, Router } from "react-router-dom";
 import { createBrowserHistory } from "history";
 import StyledEngineProvider from "@material-ui/core/StyledEngineProvider";
 import "mobx-react/batchingForReactDom";
 import App from "./App";
-export const history = createBrowserHistory();
+
 ReactDOM.render(
-  <Router history={history}>
+  <BrowserRouter basename="/">
     <StyledEngineProvider injectFirst>
       <App />     
     </StyledEngineProvider> 
-  </Router>,
+  </BrowserRouter>,
   document.getElementById('root')
 );
 
