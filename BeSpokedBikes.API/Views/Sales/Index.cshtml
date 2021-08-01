@@ -1,39 +1,53 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@{
 }
 <m-dialog id="new-sale" title="New Sale" style="min-width:400px">
     <div id="new-sale-form"></div>
 </m-dialog>
-<m-button color="primary">
+<m-button class="success mdc-button--raised" style="float:right;margin-bottom:5px" id="new-sale-btn">
     Add Sale
 </m-button>
 <div class="ui fluid card" style="width:100%">
     <div class="content">
-        <div class="mdc-typography--headline6">
-            Sales
+        <div class="ui two column wide grid">
+      
+                <div class="column">
+                    <div class="mdc-typography--headline6">
+                        Sales
+                    </div>
+                </div>
+                <div class="ui form column" style="text-align:right">
+                    <div class="ui field">
+                        @Html.TextBox("Search","", new {@style="max-width:180px", placeholder="Search Date", id="search-date"})
+                        <m-button class="primary mdc-button--dense mdc-button--raised" style="float:right;margin-bottom:5px" id="search-btn">
+                            <i class="fas fa-search "></i>
+                        </m-button>
+                    </div>
+                </div>
+            </div>
+            <div class="card-table">
+                <div class="ui table" id="sales"></div>
+            </div>
         </div>
-        <div class="card-table">
-            <div class="ui table" id="sales"></div>
-        </div>
+
     </div>
-</div>
+
 
 <script>
     $(document).ready(function () {
         window.NewSaleDialog = $('#new-sale')[0]
+        window.LoadUrl = "/getSales";
         LoadSales();
+        $('#search-date').datepicker({ autoclose: true });
+        $('#new-sale-btn').on('click', ()=>NewSaleDialog.open())
         window.NewSaleDialog.onConfirm = () => {
             var data = $('#sale-form').serializeObject();
-            data.ProductId = $("#ProductId option:selected").val()
             $.ajax({
                 url: "/createNewSale",
                 type: "POST",
                 dataType: "json",
                 data: data,
                 success: function (response) {
-                    ProductDialog.close();
+                    NewSaleDialog.close();
                     LoadSales();
                 },
                 error: function (xhr, ajaxOptions, thrownError) {
@@ -46,7 +60,7 @@
 
     function LoadSales() {
         $("#sales").grid({
-            loadUrl: "/getSales",
+            loadUrl: window.LoadUrl,
             autoload: true,
             rowButton: [],
             search: false,

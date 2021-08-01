@@ -67,7 +67,7 @@ namespace BeSpokedBikes.API.Controllers
         {
             try
             {
-                this.context.Sales.Add(new Domain.Entities.Sale() { CustomerId = model.CustomerId, SalePersonId = model.SalePersonId, ProductId = model.ProductId });
+                this.context.Sales.Add(new Domain.Entities.Sale() { CustomerId = model.CustomerId, SalePersonId = model.SalePersonId, ProductId = model.ProductId, Date=DateTimeOffset.UtcNow });
                 await this.context.SaveChangesAsync();
                 return new JsonResult(new { success = true });
             }

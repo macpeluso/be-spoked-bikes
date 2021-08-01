@@ -325,3 +325,20 @@ button:focus {
   width:-webkit-fill-available;
   
 }
+
+.ui.form .field>.selection.dropdown {
+    width: -webkit-fill-available;
+    min-height: 15px;
+}
+
+.mdc-button--raised.primary {
+    background: #4184f3
+}
+
+.mdc-button--raised.success {
+    background: #4caf50
+}
+#search-btn{
+    height:34px;
+    margin-left:5px;
+}

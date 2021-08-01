@@ -2,22 +2,50 @@
 
 @using (Html.BeginForm("NewSale", "Sales", FormMethod.Post, new { id = "sale-form", @class = "ui form" }))
 {
-    @Html.HiddenFor(m => m.ProductId)
-
-    <div class="ui field">
-        @Html.LabelFor(m => m.SalePersonId)
-        @Html.DropDownListFor(m=>m.SalePersonId, Model.Associates)
+<div class="ui field">
+    @Html.LabelFor(m => m.SalePersonId)
+    <div class="ui selection dropdown">
+        <input type="hidden" id="SalePersonId" name="SalePersonId">
+        <i class="dropdown icon"></i>
+        <div class="default text">Associate</div>
+        <div class="menu">
+            @foreach(var person in Model.Associates){
+                <div class="item" data-value="@person.Value">@person.Text</div>
+         }
+        </div>
     </div>
+</div>
     <div class="ui field">
         @Html.LabelFor(m => m.CustomerId)
-        @Html.DropDownListFor(m => m.SalePersonId, Model.Customers)
+        <div class="ui selection dropdown">
+            <input type="hidden" id="CustomerId" name="CustomerId">
+            <i class="dropdown icon"></i>
+            <div class="default text">Customer</div>
+            <div class="menu">
+                @foreach(var customer in Model.Customers){
+                    <div class="item" data-value="@customer.Value">@customer.Text</div>
+                }
+            </div>
+        </div>
     </div>
 
     <div class="ui field">
         @Html.LabelFor(m => m.ProductId)
-        @Html.DropDownListFor(m => m.ProductId, Model.Products)
-
+        <div class="ui selection dropdown">
+            <input type="hidden" id="ProductId" name="ProductId">
+            <i class="dropdown icon"></i>
+            <div class="default text">Product</div>
+            <div class="menu">
+                @foreach(var product in Model.Products){
+                <div class="item" data-value="@product.Value">@product.Text</div>
+                }
+            </div>
+        </div>
     </div>
 
-
 }
+<script>
+    $(document).ready(function () {
+        $('.ui.dropdown').dropdown()
+    })
+</script>
