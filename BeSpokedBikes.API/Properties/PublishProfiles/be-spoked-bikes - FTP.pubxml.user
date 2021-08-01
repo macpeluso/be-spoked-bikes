@@ -7,5 +7,69 @@ by editing this MSBuild file. In order to learn more about this please visit htt
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
     <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAguY93pAws0y6xFEn76lhJQAAAAACAAAAAAAQZgAAAAEAACAAAAD5ZOU6CjtQDiuUd0xRwKJmGne8F1CVIv1xD69Kj1L6NQAAAAAOgAAAAAIAACAAAABHSmDoM3DFqcruN06q/lXixlH1hTYbaFsB3rP2MI6WtYAAAAAN6zTjUFZH+C5gZ7xvFI9cFoxPRrJ6nDl+G6YkPO9UZ66a48bGm2sJHVOf2cR6lANt5XhdaCB5+GFrAfQCG7JsC1dAqehiz4VZRizCCgIwFZj3A9ndAb9VWpxSezJRDpIhBljYMgnQediObcW1WxHVR9JNCBwfDw2MbqgQBrHfckAAAADvJwtWqBHQo6nyN4Pn8RKhpOVL1VzOGG5FZi66w1pmw5vvK5aWQWsRrjLZZAcPbnQLgVuWxvbcX+XrF236DpKq</EncryptedPassword>
+    <History>False|2021-08-02T05:41:55.0945209Z;</History>
+    <_PublishTargetUrl>ftp://waws-prod-bn1-091.ftp.azurewebsites.windows.net/site/wwwroot</_PublishTargetUrl>
   </PropertyGroup>
+  <ItemGroup>
+    <File Include="appsettings.Development.json">
+      <publishTime>08/02/2021 00:35:20</publishTime>
+    </File>
+    <File Include="appsettings.json">
+      <publishTime>08/02/2021 00:35:20</publishTime>
+    </File>
+    <File Include="BeSpokedBikes.API.deps.json">
+      <publishTime>08/02/2021 01:41:35</publishTime>
+    </File>
+    <File Include="BeSpokedBikes.API.exe">
+      <publishTime>08/02/2021 01:41:30</publishTime>
+    </File>
+    <File Include="BeSpokedBikes.API.runtimeconfig.json">
+      <publishTime>08/02/2021 01:41:31</publishTime>
+    </File>
+    <File Include="BeSpokedBikes.API.Views.pdb">
+      <publishTime>08/02/2021 01:41:31</publishTime>
+    </File>
+    <File Include="BeSpokedBikes.Application.pdb">
+      <publishTime>08/02/2021 01:41:30</publishTime>
+    </File>
+    <File Include="BeSpokedBikes.Common.pdb">
+      <publishTime>08/02/2021 01:41:28</publishTime>
+    </File>
+    <File Include="BeSpokedBikes.Domain.pdb">
+      <publishTime>08/02/2021 01:41:29</publishTime>
+    </File>
+    <File Include="BeSpokedBikes.Infrastructure.pdb">
+      <publishTime>08/02/2021 01:41:29</publishTime>
+    </File>
+    <File Include="FluentValidation.DependencyInjectionExtensions.dll">
+      <publishTime>11/10/2020 11:18:02</publishTime>
+    </File>
+    <File Include="MediatR.Extensions.Microsoft.DependencyInjection.dll">
+      <publishTime>10/08/2020 13:35:22</publishTime>
+    </File>
+    <File Include="Microsoft.Data.SqlClient.dll">
+      <publishTime>08/25/2020 19:24:48</publishTime>
+    </File>
+    <File Include="Microsoft.Identity.Client.dll">
+      <publishTime>05/18/2020 16:11:54</publishTime>
+    </File>
+    <File Include="Microsoft.IdentityModel.JsonWebTokens.dll">
+      <publishTime>10/18/2019 19:39:24</publishTime>
+    </File>
+    <File Include="Microsoft.IdentityModel.Logging.dll">
+      <publishTime>10/18/2019 19:40:20</publishTime>
+    </File>
+    <File Include="Microsoft.IdentityModel.Protocols.dll">
+      <publishTime>10/18/2019 19:41:02</publishTime>
+    </File>
+    <File Include="Microsoft.IdentityModel.Protocols.OpenIdConnect.dll">
+      <publishTime>10/18/2019 19:48:48</publishTime>
+    </File>
+    <File Include="Microsoft.IdentityModel.Tokens.dll">
+      <publishTime>10/18/2019 19:43:40</publishTime>
+    </File>
+    <File Include="Newtonsoft.Json.dll">
+      <publishTime>03/20/2017 16:03:18</publishTime>
+    </File>
+  </ItemGroup>
 </Project>

@@ -33,10 +33,8 @@ namespace BeSpokedBikes.API.Controllers
         {
             try
             {
-
-
                 var person = await this.context.SalesPeople.FirstOrDefaultAsync(x => x.SalesPersonId == model.SalesPersonId);
-
+        
                 if (person == null) throw new RestException("That person doesn't exist");
 
                 person.Manager = model.Manager;
@@ -44,13 +42,18 @@ namespace BeSpokedBikes.API.Controllers
                 person.Contact.FirstName = model.FirstName;
                 person.Contact.LastName = model.LastName;
                 person.Contact.Phone = model.Phone;
-                person.Contact.Address.StreetAddress = model.StreetAddress;
+
+                //Saving twice prevents EF from complaining since this entity references multiple tables.
+                await context.SaveChangesAsync();
+
+                person.Contact.Address.StreetAddress = model.StreetAddress ?? "";
                 person.Contact.Address.SubAddress = model.SubAddress;
                 person.Contact.Address.City = model.City;
                 person.Contact.Address.State = model.State;
                 person.Contact.Address.PostalCode = model.PostalCode;
 
-                await context.SaveEntitiesAsync();
+                await context.SaveChangesAsync();
+
 
                 return new JsonResult(new { success = true });
             }
