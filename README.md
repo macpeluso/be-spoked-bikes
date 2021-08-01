@@ -1,6 +1,6 @@
 # be-spoked-bikes
 
-Hosted on https://be-spoked-bikes.azurewebsites.net/Sales
+Hosted on https://be-spoked-bikes.azurewebsites.net
 
 Database Login
 Server: macsqldb.database.windows.net
