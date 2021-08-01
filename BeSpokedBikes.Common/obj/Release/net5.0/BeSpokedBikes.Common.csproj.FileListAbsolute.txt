@@ -1,0 +1,12 @@
+C:\Users\macke\Sync\Documents\Development\be-spoked-bikes\BeSpokedBikes.Common\bin\Release\net5.0\BeSpokedBikes.Common.deps.json
+C:\Users\macke\Sync\Documents\Development\be-spoked-bikes\BeSpokedBikes.Common\bin\Release\net5.0\BeSpokedBikes.Common.dll
+C:\Users\macke\Sync\Documents\Development\be-spoked-bikes\BeSpokedBikes.Common\bin\Release\net5.0\ref\BeSpokedBikes.Common.dll
+C:\Users\macke\Sync\Documents\Development\be-spoked-bikes\BeSpokedBikes.Common\bin\Release\net5.0\BeSpokedBikes.Common.pdb
+C:\Users\macke\Sync\Documents\Development\be-spoked-bikes\BeSpokedBikes.Common\obj\Release\net5.0\BeSpokedBikes.Common.csproj.AssemblyReference.cache
+C:\Users\macke\Sync\Documents\Development\be-spoked-bikes\BeSpokedBikes.Common\obj\Release\net5.0\BeSpokedBikes.Common.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\macke\Sync\Documents\Development\be-spoked-bikes\BeSpokedBikes.Common\obj\Release\net5.0\BeSpokedBikes.Common.AssemblyInfoInputs.cache
+C:\Users\macke\Sync\Documents\Development\be-spoked-bikes\BeSpokedBikes.Common\obj\Release\net5.0\BeSpokedBikes.Common.AssemblyInfo.cs
+C:\Users\macke\Sync\Documents\Development\be-spoked-bikes\BeSpokedBikes.Common\obj\Release\net5.0\BeSpokedBikes.Common.csproj.CoreCompileInputs.cache
+C:\Users\macke\Sync\Documents\Development\be-spoked-bikes\BeSpokedBikes.Common\obj\Release\net5.0\BeSpokedBikes.Common.dll
+C:\Users\macke\Sync\Documents\Development\be-spoked-bikes\BeSpokedBikes.Common\obj\Release\net5.0\ref\BeSpokedBikes.Common.dll
+C:\Users\macke\Sync\Documents\Development\be-spoked-bikes\BeSpokedBikes.Common\obj\Release\net5.0\BeSpokedBikes.Common.pdb
