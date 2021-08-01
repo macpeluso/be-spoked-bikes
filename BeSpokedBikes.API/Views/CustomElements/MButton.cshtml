@@ -1,0 +1,21 @@
+﻿<script>
+    class mButton extends HTMLElement {
+        constructor() {
+            super();
+        }
+
+        connectedCallback() {
+            let type = this.getAttribute("type");
+            if (type === "icon") {
+                this.classList.add('mdc-icon-button');               
+            }
+            else this.classList.add('mdc-button');
+        
+            this.Color = this.getAttribute("color");
+
+            if (this.Color !== null) this.classList.add(this.Color); 
+        }
+    }
+
+    customElements.define('m-button', mButton);
+</script>

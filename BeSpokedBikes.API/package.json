@@ -1,0 +1,17 @@
+{
+  "version": "1.0.0",
+  "name": "asp.net",
+  "private": true,
+  "devDependencies": {
+    "@web/dev-server": "^0.1.20",
+    "bootstrap": "4.3.1",
+    "jquery": "3.5.1",
+    "jquery-validation": "1.17.0",
+    "jquery-validation-unobtrusive": "3.2.11",
+    "popper.js": "1.14.7"
+  },
+  "dependencies": {
+    "@material/mwc-button": "^0.22.1",
+    "@webcomponents/webcomponentsjs": "^2.5.0"
+  }
+}

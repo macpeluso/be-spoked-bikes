@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v5.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v5.0": {
+      "BeSpokedBikes.Domain/1.0.0": {
+        "runtime": {
+          "BeSpokedBikes.Domain.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "BeSpokedBikes.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
