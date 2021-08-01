@@ -31,21 +31,29 @@ namespace BeSpokedBikes.API.Controllers
         [HttpPost("editProduct")]
         public async Task<JsonResult> Edit(ProductModel model)
         {
-            var product = await this.context.Products.FirstOrDefaultAsync(x => x.ProductId == model.ProductId);
+            try
+            {
+                var product = await this.context.Products.FirstOrDefaultAsync(x => x.ProductId == model.ProductId);
 
-            if (product == null) throw new RestException("That product doesn't exist");
+                if (product == null) throw new RestException("That product doesn't exist");
 
-            product.PurchasePrice = model.PurchasePrice;
-            product.SalePrice = model.SalePrice;
-            product.CommissionPercentage = model.CommissionPercentage;
-            product.Name = model.Name;
-            product.Manufacturer = model.Manufacturer;
-            product.Quantity = model.Quantity;
-            product.Style = model.Style;
+                product.PurchasePrice = model.PurchasePrice;
+                product.SalePrice = model.SalePrice;
+                product.CommissionPercentage = model.CommissionPercentage;
+                product.Name = model.Name;
+                product.Manufacturer = model.Manufacturer;
+                product.Quantity = model.Quantity;
+                product.Style = model.Style;
 
-            await context.SaveChangesAsync();
+                await context.SaveChangesAsync();
 
-            return new JsonResult(new { success=true });
+                return new JsonResult(new { success = true });
+            }
+            catch (Exception ex)
+            {
+                throw new RestException(ex);
+            }
+
         }
 
     }

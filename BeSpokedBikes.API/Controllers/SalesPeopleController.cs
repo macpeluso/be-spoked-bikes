@@ -37,7 +37,8 @@ namespace BeSpokedBikes.API.Controllers
 
                 var person = await this.context.SalesPeople.FirstOrDefaultAsync(x => x.SalesPersonId == model.SalesPersonId);
 
-                if (person == null) throw new RestException("That product doesn't exist");
+                if (person == null) throw new RestException("That person doesn't exist");
+
                 person.Manager = model.Manager;
                 person.TerminationDate = model.TerminationDate;
                 person.Contact.FirstName = model.FirstName;
@@ -49,14 +50,13 @@ namespace BeSpokedBikes.API.Controllers
                 person.Contact.Address.State = model.State;
                 person.Contact.Address.PostalCode = model.PostalCode;
 
-                await context.SaveChangesAsync();
+                await context.SaveEntitiesAsync();
 
                 return new JsonResult(new { success = true });
             }
             catch (Exception ex)
             {
-
-                throw;
+                throw new RestException(ex);
             }
         }
     }

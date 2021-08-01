@@ -4,6 +4,7 @@ using BeSpokedBikes.Application.Queries.Customers;
 using BeSpokedBikes.Application.Queries.Products;
 using BeSpokedBikes.Application.Queries.Sales;
 using BeSpokedBikes.Application.Queries.SalesPeople;
+using BeSpokedBikes.Domain.Exceptions;
 using BeSpokedBikes.Infrastructure;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -46,7 +47,7 @@ namespace BeSpokedBikes.API.Controllers
 
         [HttpGet("getSales")]
         public async Task<List<SaleModel>> GetSales() => await this.queries.GetSales();
-        [HttpGet("getSalesByDate")]
+        [HttpGet("getSalesByDate/{date}")]
         public async Task<List<SaleModel>> GetSalesForDate(DateTime date) => await this.queries.GetSalesForDate(date);
         [HttpGet("/newSale")]
         public async Task<JsonResult> NewSale()
@@ -68,12 +69,14 @@ namespace BeSpokedBikes.API.Controllers
             try
             {
                 this.context.Sales.Add(new Domain.Entities.Sale() { CustomerId = model.CustomerId, SalePersonId = model.SalePersonId, ProductId = model.ProductId, Date=DateTimeOffset.UtcNow });
+                
                 await this.context.SaveChangesAsync();
+
                 return new JsonResult(new { success = true });
             }
             catch (Exception ex)
             {
-                throw;
+                throw new RestException("Failure");
             }
         }
     }

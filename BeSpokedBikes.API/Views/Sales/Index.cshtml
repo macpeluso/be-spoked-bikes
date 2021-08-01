@@ -9,27 +9,27 @@
 <div class="ui fluid card" style="width:100%">
     <div class="content">
         <div class="ui two column wide grid">
-      
-                <div class="column">
-                    <div class="mdc-typography--headline6">
-                        Sales
-                    </div>
-                </div>
-                <div class="ui form column" style="text-align:right">
-                    <div class="ui field">
-                        @Html.TextBox("Search","", new {@style="max-width:180px", placeholder="Search Date", id="search-date"})
-                        <m-button class="primary mdc-button--dense mdc-button--raised" style="float:right;margin-bottom:5px" id="search-btn">
-                            <i class="fas fa-search "></i>
-                        </m-button>
-                    </div>
+
+            <div class="column">
+                <div class="mdc-typography--headline6">
+                    Sales
                 </div>
             </div>
-            <div class="card-table">
-                <div class="ui table" id="sales"></div>
+            <div class="ui form column" style="text-align:right">
+                <div class="ui field">
+                    @Html.TextBox("Search", "", new { @style = "max-width:180px", placeholder = "Search Date", id = "search-date" })
+                    <m-button class="primary mdc-button--dense mdc-button--raised" style="float:right;margin-bottom:5px" id="search">
+                        <i class="fas fa-search "></i>
+                    </m-button>
+                </div>
             </div>
         </div>
-
+        <div class="card-table">
+            <div class="ui table" id="sales"></div>
+        </div>
     </div>
+
+</div>
 
 
 <script>
@@ -38,7 +38,13 @@
         window.LoadUrl = "/getSales";
         LoadSales();
         $('#search-date').datepicker({ autoclose: true });
-        $('#new-sale-btn').on('click', ()=>NewSaleDialog.open())
+        $('#new-sale-btn').on('click', () => NewSaleDialog.open())
+
+        $('#search').off('click').on('click', function(e){
+            window.LoadUrl = "/getSalesByDate/" + new Date($('#search-date').val()).toISOString();
+            LoadSales();
+        })
+
         window.NewSaleDialog.onConfirm = () => {
             var data = $('#sale-form').serializeObject();
             $.ajax({
@@ -55,7 +61,7 @@
                 }
             });
         }
-        axios.get("/newSale").then((res)=>$('#new-sale-form').html(res.data.view))
+        axios.get("/newSale").then((res) => $('#new-sale-form').html(res.data.view))
     });
 
     function LoadSales() {
@@ -68,15 +74,18 @@
                 { name: "customerName", title: "Customer", type: "text" },
                 { name: "associateName", title: "Associate", type: "text", width: 50 },
                 { name: "productName", title: "Product", type: "text", width: 50 },
-                { name: "salePrice", title: "Price", type: "text", width: 50, align: "left",
+                {
+                    name: "salePrice", title: "Price", type: "text", width: 50, align: "left",
                     itemTemplate: function (value) {
                         return "$" + value.toFixed(2);
                     }
                 },
-                { name: "commission", title: "Commission", type: "text", width: 50 ,
+                {
+                    name: "commission", title: "Commission", type: "text", width: 50,
                     itemTemplate: function (value) {
                         return "$" + value.toFixed(2);
-                    }},
+                    }
+                },
                 { name: "saleDate", title: "Date", type: "text", width: 150, align: "left" }
             ]
         });
