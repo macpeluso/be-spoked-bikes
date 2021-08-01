@@ -14,6 +14,8 @@ namespace BeSpokedBikes.Domain.Entities
         public Guid ContactId { get; set; }
         public DateTimeOffset? TerminationDate { get; set; }
         public bool Manager { get; set; }
-        public virtual Contact Contact { get; set; }
+        public Contact Contact { get; set; }
+        public virtual List<Sale> Sales { get; set; }
+
     }
 }

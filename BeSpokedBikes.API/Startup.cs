@@ -1,10 +1,15 @@
 using Autofac;
+using AutoMapper;
 using BeSpokedBikes.Application.AutoFacModules;
+using BeSpokedBikes.Application.Models;
+using BeSpokedBikes.Application.Queries.Customers;
 using BeSpokedBikes.Infrastructure;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Proxies;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -32,10 +37,22 @@ namespace BeSpokedBikes.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<BSBContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")),
-                ServiceLifetime.Scoped);
+            services.AddDbContext<BSBContext>(options => {
+                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
+                options.UseLazyLoadingProxies();
+            },ServiceLifetime.Scoped);
+            services.AddAutoMapper(typeof(CustomerQueries));
             services.AddControllersWithViews();
+            services.Configure<RazorViewEngineOptions>(o => {
+                o.ViewLocationFormats.Clear();
+                o.ViewLocationFormats.Add("/Views/{1}/{0}" + RazorViewEngine.ViewExtension);
+                o.ViewLocationFormats.Add("/Views/Shared/{0}" + RazorViewEngine.ViewExtension);
+            });
+            services.AddRazorPages()
+            .WithRazorPagesRoot("/Views")
+            .AddRazorRuntimeCompilation();
+            services.AddScoped<IRazorViewToStringRenderer, RazorViewToStringRenderer>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

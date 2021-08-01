@@ -101,7 +101,6 @@ C:\Users\macke\Sync\Documents\Development\be-spoked-bikes\BeSpokedBikes.API\bin\
 C:\Users\macke\Sync\Documents\Development\be-spoked-bikes\BeSpokedBikes.API\bin\Debug\net5.0\refs\Microsoft.Extensions.Configuration.UserSecrets.dll
 C:\Users\macke\Sync\Documents\Development\be-spoked-bikes\BeSpokedBikes.API\bin\Debug\net5.0\refs\Microsoft.Extensions.Configuration.Xml.dll
 C:\Users\macke\Sync\Documents\Development\be-spoked-bikes\BeSpokedBikes.API\bin\Debug\net5.0\refs\Microsoft.Extensions.DependencyInjection.Abstractions.dll
-C:\Users\macke\Sync\Documents\Development\be-spoked-bikes\BeSpokedBikes.API\bin\Debug\net5.0\refs\Microsoft.Extensions.DependencyInjection.dll
 C:\Users\macke\Sync\Documents\Development\be-spoked-bikes\BeSpokedBikes.API\bin\Debug\net5.0\refs\Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions.dll
 C:\Users\macke\Sync\Documents\Development\be-spoked-bikes\BeSpokedBikes.API\bin\Debug\net5.0\refs\Microsoft.Extensions.Diagnostics.HealthChecks.dll
 C:\Users\macke\Sync\Documents\Development\be-spoked-bikes\BeSpokedBikes.API\bin\Debug\net5.0\refs\Microsoft.Extensions.FileProviders.Abstractions.dll
@@ -159,7 +158,6 @@ C:\Users\macke\Sync\Documents\Development\be-spoked-bikes\BeSpokedBikes.API\bin\
 C:\Users\macke\Sync\Documents\Development\be-spoked-bikes\BeSpokedBikes.API\bin\Debug\net5.0\refs\System.Data.dll
 C:\Users\macke\Sync\Documents\Development\be-spoked-bikes\BeSpokedBikes.API\bin\Debug\net5.0\refs\System.Diagnostics.Contracts.dll
 C:\Users\macke\Sync\Documents\Development\be-spoked-bikes\BeSpokedBikes.API\bin\Debug\net5.0\refs\System.Diagnostics.Debug.dll
-C:\Users\macke\Sync\Documents\Development\be-spoked-bikes\BeSpokedBikes.API\bin\Debug\net5.0\refs\System.Diagnostics.DiagnosticSource.dll
 C:\Users\macke\Sync\Documents\Development\be-spoked-bikes\BeSpokedBikes.API\bin\Debug\net5.0\refs\System.Diagnostics.EventLog.dll
 C:\Users\macke\Sync\Documents\Development\be-spoked-bikes\BeSpokedBikes.API\bin\Debug\net5.0\refs\System.Diagnostics.FileVersionInfo.dll
 C:\Users\macke\Sync\Documents\Development\be-spoked-bikes\BeSpokedBikes.API\bin\Debug\net5.0\refs\System.Diagnostics.Process.dll
@@ -407,3 +405,15 @@ C:\Users\macke\Sync\Documents\Development\be-spoked-bikes\BeSpokedBikes.API\bin\
 C:\Users\macke\Sync\Documents\Development\be-spoked-bikes\BeSpokedBikes.API\bin\Debug\net5.0\BeSpokedBikes.Common.dll
 C:\Users\macke\Sync\Documents\Development\be-spoked-bikes\BeSpokedBikes.API\bin\Debug\net5.0\BeSpokedBikes.Application.pdb
 C:\Users\macke\Sync\Documents\Development\be-spoked-bikes\BeSpokedBikes.API\bin\Debug\net5.0\BeSpokedBikes.Common.pdb
+C:\Users\macke\Sync\Documents\Development\be-spoked-bikes\BeSpokedBikes.API\bin\Debug\net5.0\Castle.Core.dll
+C:\Users\macke\Sync\Documents\Development\be-spoked-bikes\BeSpokedBikes.API\bin\Debug\net5.0\Humanizer.dll
+C:\Users\macke\Sync\Documents\Development\be-spoked-bikes\BeSpokedBikes.API\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\macke\Sync\Documents\Development\be-spoked-bikes\BeSpokedBikes.API\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Proxies.dll
+C:\Users\macke\Sync\Documents\Development\be-spoked-bikes\BeSpokedBikes.API\bin\Debug\net5.0\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\macke\Sync\Documents\Development\be-spoked-bikes\BeSpokedBikes.API\bin\Debug\net5.0\System.Diagnostics.DiagnosticSource.dll
+C:\Users\macke\Sync\Documents\Development\be-spoked-bikes\BeSpokedBikes.API\obj\Debug\net5.0\Razor\Views\Customers\Index.cshtml.g.cs
+C:\Users\macke\Sync\Documents\Development\be-spoked-bikes\BeSpokedBikes.API\obj\Debug\net5.0\Razor\Views\Products\EditForm.cshtml.g.cs
+C:\Users\macke\Sync\Documents\Development\be-spoked-bikes\BeSpokedBikes.API\obj\Debug\net5.0\Razor\Views\SalesPeople\Index.cshtml.g.cs
+C:\Users\macke\Sync\Documents\Development\be-spoked-bikes\BeSpokedBikes.API\obj\Debug\net5.0\Razor\Views\SalesPeople\EditForm.cshtml.g.cs
+C:\Users\macke\Sync\Documents\Development\be-spoked-bikes\BeSpokedBikes.API\obj\Debug\net5.0\Razor\Views\Sales\Index.cshtml.g.cs
+C:\Users\macke\Sync\Documents\Development\be-spoked-bikes\BeSpokedBikes.API\obj\Debug\net5.0\Razor\Views\Sales\NewSale.cshtml.g.cs

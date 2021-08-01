@@ -1,0 +1,51 @@
+﻿@model BeSpokedBikes.Application.Models.SalesPersonModel
+@{
+}
+@using (Html.BeginForm("Edit", "SalesPerson", FormMethod.Post, new { id = "assoc-form", @class = "ui form" }))
+{
+    @Html.HiddenFor(m => m.SalesPersonId)
+
+<div class="ui two fields">
+    <div class="ui field">
+        @Html.LabelFor(m => m.FirstName)@Html.TextBoxFor(m => m.FirstName)
+    </div>
+    <div class="ui field">
+        @Html.LabelFor(m => m.LastName)@Html.TextBoxFor(m => m.LastName)
+    </div>
+
+</div>
+
+    <div class="ui field">
+        @Html.LabelFor(m => m.Phone)@Html.TextBoxFor(m => m.Phone)
+    </div>
+
+    <div class="ui field">
+        @Html.LabelFor(m => m.StreetAddress)@Html.TextBoxFor(m => m.StreetAddress, new { @class = "input-mask" })
+    </div>
+
+    <div class="ui field">
+        @Html.LabelFor(m => m.SubAddress)@Html.TextBoxFor(m => m.SubAddress, new { @class = "input-mask" })
+    </div>
+
+
+    <div class="ui three fields">
+        <div class="ui field">
+            @Html.LabelFor(m => m.City)@Html.TextBoxFor(m => m.City, new { @class = "input-mask", @required="required" })
+        </div>
+        <div class="ui field">
+            @Html.LabelFor(m => m.State)@Html.TextBoxFor(m => m.State)
+        </div>
+
+        <div class="ui field">
+            @Html.LabelFor(m => m.PostalCode)@Html.TextBoxFor(m => m.PostalCode)
+        </div>
+    </div>
+
+    <div class="ui field">
+        @Html.LabelFor(m => m.TerminationDate)@Html.TextBoxFor(m => m.TerminationDate)
+    </div>
+    <div class="ui inline field">
+        @Html.LabelFor(m => m.Manager)
+        @Html.CheckBoxFor(m => m.Manager)
+    </div>
+}

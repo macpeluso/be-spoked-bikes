@@ -1,6 +1,96 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@{
 }
-<div id="products"></div>
+<m-dialog title="Edit Product" id="product-dialog" style="min-width:400px">
+    @await Html.PartialAsync("~/Views/Products/EditForm.cshtml", new BeSpokedBikes.Application.Models.ProductModel())
+</m-dialog>
+<div class="ui fluid card" style="width:100%">
+    <div class="content">
+        <div class="mdc-typography--headline6">
+            Products
+        </div>
+        <div class="card-table">
+            <div class="ui table" id="products"></div>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        window.ProductDialog = $('#product-dialog')[0]
+        LoadProducts();
+        $('#CommissionPercentage').inputmask("numeric", { min: 0, max: 100, allowMinus: false, suffix: "%", align: "left" })
+        $('#SalePrice').maskMoney({ allowZero: true })
+        $('#PurchasePrice').maskMoney({ allowZero: true })
+
+        ProductDialog.onConfirm = () => {
+            var data = $('#product-form').serializeObject();
+
+            $.ajax({
+                url: "/editProduct",
+                type: "POST",
+                dataType: "json",
+                data: data,
+                success: function (response) {
+                    ProductDialog.close();
+                    LoadProducts();
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    console.log(error)
+                }
+            });
+        }
+    });
+    function LoadProducts() {
+        $("#products").grid({
+            height: "auto",
+            width: "100%",
+            loadUrl: "/getProducts",
+            sorting: false,
+            paging: false,
+            rowButtons: [EditProductButton],
+            autoload: true,
+            rowClick: function (args) {
+                ProductDialog.open();
+            },
+            controller: {
+                loadData: function () {
+                    var d = $.Deferred();
+
+                    $.ajax({
+                        url: "/getProducts",
+                        dataType: "json"
+                    }).done(function (response) {
+                        d.resolve(response);
+                    });
+
+                    return d.promise();
+                }
+            },
+
+            fields: [
+                { name: "name", title: "Name", type: "text" },
+                { name: "manufacturer", title: "Make", type: "text", width: 100 },
+                { name: "style", title: "Style", type: "text", width: 50, align: "left" },
+                {
+                    name: "salePrice", title: "Sale Price", type: "number", width: 100,
+                    itemTemplate: function (value) {
+                        return "$" + value.toFixed(2);
+                    }
+                },
+                {
+                    name: "purchasePrice", title: "Purchase Price", type: "number", width: 100,
+                    itemTemplate: function (value) {
+                        return "$" + value.toFixed(2);
+                    }
+                },
+                {
+                    name: "commissionPercentage", title: "Commission", type: "number", width: 100,
+                    itemTemplate: function (value) {
+                        return value.toFixed(2) + "%";
+                    }
+                },
+                { name: "quantity", title: "Quantity", type: "number", width: 50 },
+            ]
+        });
+
+    }
+</script>

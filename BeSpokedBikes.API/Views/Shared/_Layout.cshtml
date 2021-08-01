@@ -6,9 +6,13 @@
     <title>BeSpoked Bikes</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" rel="stylesheet">
+
     <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid.min.css" />
     <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid-theme.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
     <script src="~/lib/webcomponentsjs/webcomponents-bundle.js"></script>
 </head>
 <body>
@@ -28,6 +32,15 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Products" asp-action="Index">Products</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Customers" asp-action="Index">Customers</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="SalesPeople" asp-action="Index">Sales Associates</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Sales" asp-action="Index">Sales</a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -37,19 +50,25 @@
     @await Html.PartialAsync("~/Views/CustomElements/MButton.cshtml")
     @await Html.PartialAsync("~/Views/CustomElements/MProgressBar.cshtml")
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/lib/jquery.mask.min.js"></script>
+    <script src="~/lib/jquery.maskedinput.min.js"></script>
+    <script src="~/lib/jquery.maskMoney.min.js"></script>
+    <script src="~/lib/semantic.min.js"></script>
+    @*<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>*@
     <script src="~/lib/axios.min.js"></script>
     <script src="~/lib/material-components-web.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid.min.js"></script>
+    <script src="~/lib/fontawesome-all.min.js"></script>
+    <script src="~/lib/jsgrid-1.5.3/jsgrid.js"></script>
+    <script src="~/lib/GridButtons.js" asp-append-version="true"></script>
+    <script src="~/lib/Grid.js" asp-append-version="true"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 
     <div class="container">
         <main role="main" class="pb-3">
             @*<m-button color="primary" class="mdc-button--raised" id="poo">Click Me</m-button>*@
-            <m-dialog title="hello" id="test">
-                Test
-            </m-dialog>
             @RenderBody()
         </main>
     </div>

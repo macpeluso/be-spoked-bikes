@@ -62,6 +62,16 @@
               "target": "Package",
               "version": "[5.0.8, )"
             },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.0.5, )"
+            },
+            "Microsoft.EntityFrameworkCore.Proxies": {
+              "target": "Package",
+              "version": "[5.0.8, )"
+            },
             "Microsoft.TypeScript.MSBuild": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
@@ -290,7 +300,11 @@
         "frameworks": {
           "net5.0": {
             "targetAlias": "net5.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Users\\macke\\Sync\\Documents\\Development\\be-spoked-bikes\\BeSpokedBikes.Common\\BeSpokedBikes.Common.csproj": {
+                "projectPath": "C:\\Users\\macke\\Sync\\Documents\\Development\\be-spoked-bikes\\BeSpokedBikes.Common\\BeSpokedBikes.Common.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -302,6 +316,12 @@
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore.Abstractions": {
+              "target": "Package",
+              "version": "[5.0.8, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

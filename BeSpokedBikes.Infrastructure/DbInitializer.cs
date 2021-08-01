@@ -30,10 +30,12 @@ namespace BeSpokedBikes.Infrastructure
 
             //if (!context.Addresses.Any()) addresses.Add(address);
 
+            var customers = context.Customers.ToList();
+            var salesPeople = context.SalesPeople.ToList();
+            customers[0].Contact.Address.State = "MI";
+            salesPeople[0].Contact.Address.State = "MI";
 
-
-
-            if (context.Contacts.Any()) return;
+            //if (context.Contacts.Any()) return;
 
             context.SaveChanges();
         }

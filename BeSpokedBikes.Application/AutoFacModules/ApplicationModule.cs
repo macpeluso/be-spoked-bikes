@@ -8,6 +8,9 @@ using Autofac;
 using BeSpokedBikes.Common;
 using BeSpokedBikes.Infrastructure.Behaviors;
 using BeSpokedBikes.Application.Queries.Products;
+using BeSpokedBikes.Application.Queries.Customers;
+using BeSpokedBikes.Application.Queries.SalesPeople;
+using BeSpokedBikes.Application.Queries.Sales;
 
 namespace BeSpokedBikes.Application.AutoFacModules
 {
@@ -17,6 +20,9 @@ namespace BeSpokedBikes.Application.AutoFacModules
         {
             builder.RegisterMediator();
             builder.RegisterType<ProductQueries>().As<IProductQueries>().InstancePerLifetimeScope();
+            builder.RegisterType<CustomerQueries>().As<ICustomerQueries>().InstancePerLifetimeScope();
+            builder.RegisterType<SalesPeopleQueries>().As<ISalesPeopleQueries>().InstancePerLifetimeScope();
+            builder.RegisterType<SalesQueries>().As<ISalesQueries>().InstancePerLifetimeScope();
 
             builder.RegisterGeneric(typeof(LoggingBehavior<,>)).As(typeof(IPipelineBehavior<,>));
             builder.RegisterGeneric(typeof(ValidatorBehavior<,>)).As(typeof(IPipelineBehavior<,>));

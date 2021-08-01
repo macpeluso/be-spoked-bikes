@@ -1,0 +1,74 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<m-dialog title="Edit Associate" id="assoc-dialog" style="min-width:400px">
+    @await Html.PartialAsync("~/Views/SalesPeople/EditForm.cshtml", new BeSpokedBikes.Application.Models.SalesPersonModel())
+</m-dialog>
+<div class="ui fluid card" style="width:100%">
+    <div class="content">
+        <div class="mdc-typography--headline6">
+            Sales Associates
+        </div>
+        <div class="card-table">
+            <div class="ui table" id="sales-people"></div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        window.AssociateDialog = $('#assoc-dialog')[0];
+        LoadSalesPeople();
+        $('#assoc-form').submit(function (e) {
+            e.preventDefault();
+            var $form = $(this);
+            var data = $form.serializeObject();
+            data.Manager = $('#Manager:checked')[0] !== undefined
+            // check if the input is valid using a 'valid' property
+            if (!$form.valid()) return false;
+
+            $.ajax({
+                url: "/editAssociate",
+                type: "POST",
+                dataType: "json",
+                data: data,
+                success: function (response) {
+                    AssociateDialog.close();
+                    LoadSalesPeople();
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    console.log(err)
+                }
+            })
+        })
+        AssociateDialog.onConfirm = () => {
+            $('#assoc-form').submit();
+
+        }
+    });
+
+    function LoadSalesPeople() {
+        $("#sales-people").grid({
+            loadUrl: "/getSalesPeople",
+            rowButtons: [EditAssociateButton],
+            autoload: true,
+            rowButton: [],
+            search: false,
+            fields: [
+                { name: "firstName", title: "First Name", type: "text" },
+                { name: "lastName", title: "Last Name", type: "text", width: 50 },
+                { name: "phone", title: "Phone", type: "text", width: 50, align: "left" },
+                { name: "address", title: "Address", type: "text", width: 150, align: "left" },
+                { name: "manager", title: "Manager", type: "text", width: 50, 
+                    itemTemplate: function (value) {
+                        return value;
+                    }
+                },
+                {name: "termination", title: "Termination Date", type: "text", width: 100}
+                
+            ]
+        });
+    }
+</script>

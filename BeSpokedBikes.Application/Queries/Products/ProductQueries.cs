@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using BeSpokedBikes.Application.Models;
 using BeSpokedBikes.Domain.Entities;
 using BeSpokedBikes.Infrastructure;
 using Microsoft.EntityFrameworkCore;
@@ -12,18 +13,18 @@ namespace BeSpokedBikes.Application.Queries.Products
 {
     public interface IProductQueries
     {
-        Task<List<Product>> GetProducts();
+        Task<List<ProductModel>> GetProducts();
     }
     public class ProductQueries : IProductQueries
     {
         private readonly BSBContext context;
-        //private readonly IMapper mapper;
+        private readonly IMapper mapper;
 
-        public ProductQueries(BSBContext context/*, IMapper mapper*/)
+        public ProductQueries(BSBContext context, IMapper mapper)
         {
             this.context = context;
-            //this.mapper = mapper;
+            this.mapper = mapper;
         }
-        public async Task<List<Product>> GetProducts()=> await this.context.Products.ToListAsync();               
+        public async Task<List<ProductModel>> GetProducts()=> this.mapper.Map<List<Product>, List<ProductModel>>(await this.context.Products.ToListAsync());               
     }
 }

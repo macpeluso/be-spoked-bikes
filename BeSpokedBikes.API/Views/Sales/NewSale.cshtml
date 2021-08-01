@@ -1,0 +1,23 @@
+﻿@model BeSpokedBikes.Application.Models.CreateSaleModel
+
+@using (Html.BeginForm("NewSale", "Sales", FormMethod.Post, new { id = "sale-form", @class = "ui form" }))
+{
+    @Html.HiddenFor(m => m.ProductId)
+
+    <div class="ui field">
+        @Html.LabelFor(m => m.SalePersonId)
+        @Html.DropDownListFor(m=>m.SalePersonId, Model.Associates)
+    </div>
+    <div class="ui field">
+        @Html.LabelFor(m => m.CustomerId)
+        @Html.DropDownListFor(m => m.SalePersonId, Model.Customers)
+    </div>
+
+    <div class="ui field">
+        @Html.LabelFor(m => m.ProductId)
+        @Html.DropDownListFor(m => m.ProductId, Model.Products)
+
+    </div>
+
+
+}

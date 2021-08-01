@@ -16,3 +16,5 @@ C:\Users\macke\Sync\Documents\Development\be-spoked-bikes\BeSpokedBikes.Infrastr
 C:\Users\macke\Sync\Documents\Development\be-spoked-bikes\BeSpokedBikes.Infrastructure\obj\Debug\net5.0\ref\BeSpokedBikes.Infrastructure.dll
 C:\Users\macke\Sync\Documents\Development\be-spoked-bikes\BeSpokedBikes.Infrastructure\obj\Debug\net5.0\BeSpokedBikes.Infrastructure.pdb
 C:\Users\macke\Sync\Documents\Development\be-spoked-bikes\BeSpokedBikes.Infrastructure\obj\Debug\net5.0\BeSpokedBikes.Infrastructure.genruntimeconfig.cache
+C:\Users\macke\Sync\Documents\Development\be-spoked-bikes\BeSpokedBikes.Infrastructure\bin\Debug\net5.0\BeSpokedBikes.Common.dll
+C:\Users\macke\Sync\Documents\Development\be-spoked-bikes\BeSpokedBikes.Infrastructure\bin\Debug\net5.0\BeSpokedBikes.Common.pdb

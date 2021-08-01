@@ -1,0 +1,36 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<div class="ui fluid card" style="width:100%">
+    <div class="content">
+        <div class="mdc-typography--headline6">
+            Customers
+        </div>
+        <div class="card-table">
+            <div class="ui table" id="customers"></div>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        LoadCustomers();
+    });
+
+    function LoadCustomers() {
+        $("#customers").grid({
+            loadUrl: "/getCustomers",
+            autoload: true,
+            rowButton: [],
+            search: false,
+            fields: [
+                { name: "firstName", title: "First Name", type: "text" },
+                { name: "lastName", title: "Last Name", type: "text", width: 50 },
+                { name: "phone", title: "Phone", type: "text", width: 50, align: "left" },
+                { name: "address", title: "Address", type: "text", width: 150, align: "left" }
+            ]
+        });
+    }
+
+</script>

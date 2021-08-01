@@ -16,54 +16,33 @@ const MDCCheckbox = mdc.checkbox.MDCCheckbox;
 const MDCDrawer = mdc.drawer.MDCDrawer;
 const MDCRipple = mdc.ripple.MDCRipple;
 const MDCTextField = mdc.textField.MDCTextField;
-$(document).ready(function () {
-    axios.get( "/getProducts" ).then((res)=>console.log(res.data))
-    window.TestDialog = $('#test')[0]
-    LoadProducts();
-});
-function LoadProducts() {
-    $("#products").jsGrid({
-        height: "auto",
-        width: "100%",
-
-        sorting: true,
-        paging: false,
-        autoload: true,
-        rowClick: function(args) {
-            TestDialog.open();
-        },
-        controller: {
-            loadData: function () {
-                var d = $.Deferred();
-
-                $.ajax({
-                    url:"/getProducts",
-                    dataType: "json"
-                }).done(function (response) {
-                    d.resolve(response);
-                });
-
-                return d.promise();
+(function ($) {
+    $.fn.serializeObject = function () {
+        var o = {};
+        var a = this.serializeArray();
+        $.each(a, function () {
+            if (o[this.name] !== undefined) {
+                if (!o[this.name].push) {
+                    //if (Array.isArray(o[this.name])) {
+                    o[this.name] = [o[this.name]];
+                }
+                o[this.name].push(this.value || '');
+            } else {
+                o[this.name] = this.value || '';
             }
-        },
+        });
+        return o;
+    };
+})(jQuery);
 
-        fields: [
-            { name: "name",title:"Name", type: "text" },
-            { name: "manufacturer",title:"Manufacturer", type: "text", width: 50 },
-            { name: "style", title:"Style",type: "text", width: 50, align: "left"},
-            { name: "salePrice", title:"Sale Price",type: "number", width:50,
-                itemTemplate: function (value) {
-                    return "$"+value.toFixed(2);
-                }},
-            { name: "purchasePrice", title:"Purchase Price",type: "number", width:50,
-                itemTemplate: function (value) {
-                    return "$"+value.toFixed(2);
-                }},
-            { name: "quantity", title:"Quantity",type: "number", width:50},
-        ]
-    });
+$(document).ready(function () {
+    axios.get("/getSalesPeople").then((res) => console.log(res.data))
 
-}
+    InitializeButtons();
+
+});
+
+
 function InitDialog(element) {
     if (element) {
         const id = element.id || CSS.escape("567");

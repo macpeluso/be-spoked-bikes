@@ -26,7 +26,7 @@ jobs:
       run: dotnet build --configuration Release
 
     - name: dotnet publish
-      run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/BeSpokedBikes.API
+      run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/BeSpokedBikes
       env:
               CI: ""
               
@@ -34,7 +34,7 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: .net-app
-        path: ${{env.DOTNET_ROOT}}/BeSpokedBikes.API
+        path: ${{env.DOTNET_ROOT}}/BeSpokedBikes
 
   deploy:
     runs-on: windows-latest

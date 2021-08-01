@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "VSXAqmoPXwbsybLlyAYJ4JtYTsT73wIRZUSgnujbclpRTdAJjpwMrY5R2YJAuFnHzKb37WVnAgMDxqE1frBpMQ==",
+  "dgSpecHash": "1H3GBCUX/C5PcFn9AtYDcfeTTQbLz+RBPOB73gQ4sc+C4JEoWRH1C/BaE52alr+zV8cXAo1/SlDaQ/CClNCoVA==",
   "success": true,
   "projectFilePath": "C:\\Users\\macke\\Sync\\Documents\\Development\\be-spoked-bikes\\BeSpokedBikes.Application\\BeSpokedBikes.Application.csproj",
   "expectedPackageFiles": [
@@ -16,7 +16,7 @@
     "C:\\Users\\macke\\.nuget\\packages\\microsoft.data.sqlclient\\2.0.1\\microsoft.data.sqlclient.2.0.1.nupkg.sha512",
     "C:\\Users\\macke\\.nuget\\packages\\microsoft.data.sqlclient.sni.runtime\\2.0.1\\microsoft.data.sqlclient.sni.runtime.2.0.1.nupkg.sha512",
     "C:\\Users\\macke\\.nuget\\packages\\microsoft.entityframeworkcore\\5.0.0\\microsoft.entityframeworkcore.5.0.0.nupkg.sha512",
-    "C:\\Users\\macke\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\5.0.0\\microsoft.entityframeworkcore.abstractions.5.0.0.nupkg.sha512",
+    "C:\\Users\\macke\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\5.0.8\\microsoft.entityframeworkcore.abstractions.5.0.8.nupkg.sha512",
     "C:\\Users\\macke\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\5.0.0\\microsoft.entityframeworkcore.analyzers.5.0.0.nupkg.sha512",
     "C:\\Users\\macke\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\5.0.0\\microsoft.entityframeworkcore.relational.5.0.0.nupkg.sha512",
     "C:\\Users\\macke\\.nuget\\packages\\microsoft.entityframeworkcore.sqlserver\\5.0.0\\microsoft.entityframeworkcore.sqlserver.5.0.0.nupkg.sha512",

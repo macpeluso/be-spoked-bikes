@@ -16,8 +16,9 @@ namespace BeSpokedBikes.Infrastructure
         public IDbContextTransaction GetCurrentTransaction() => currentTransaction;
         public bool HasActiveTransaction => currentTransaction != null;
         public DbSet<Product> Products { get; set; }
-        public DbSet<Address> Addresses { get; set; }
-        public DbSet<Contact> Contacts { get; set; }
+
+        public DbSet<Sale> Sales { get; set; }
+        public DbSet<Customer> Customers { get; set; }
         public DbSet<SalesPerson> SalesPeople { get; set; }
         public BSBContext(DbContextOptions<BSBContext> options, IMediator mediator) : base(options)
         {
@@ -26,11 +27,13 @@ namespace BeSpokedBikes.Infrastructure
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Product>().ToTable("Product");
-            modelBuilder.Entity<Address>().ToTable("Address");
-            modelBuilder.Entity<Contact>().ToTable("Contact");
-            modelBuilder.Entity<SalesPerson>().ToTable("v_SalesPerson");
-            modelBuilder.Entity<Contact>().HasOne(x => x.Address).WithOne(x => x.Contact).HasForeignKey<Contact>(c=>c.AddressId);
-            modelBuilder.Entity<Contact>().HasOne(x => x.SalesPerson).WithOne(x => x.Contact).HasForeignKey<SalesPerson>(c=>c.SalesPersonId);
+
+            modelBuilder.Entity<SalesPerson>().ToTable("v_SalesPerson").OwnsOne(x => x.Contact);
+            modelBuilder.Entity<Sale>().ToTable("Sale");
+            modelBuilder.Entity<Customer>().ToTable("v_Customer").OwnsOne(x=>x.Contact);
+            modelBuilder.Entity<Sale>().HasOne(s => s.Customer).WithMany(c => c.Sales).HasForeignKey(s => s.CustomerId);
+            modelBuilder.Entity<Sale>().HasOne(s => s.SalesPerson).WithMany(c => c.Sales).HasForeignKey(s => s.SalePersonId);
+            modelBuilder.Entity<Sale>().HasOne(s => s.Product).WithMany(c => c.Sales).HasForeignKey(s => s.ProductId);
         }
 
         public async Task<bool> SaveEntitiesAsync(CancellationToken cancellationToken = default)

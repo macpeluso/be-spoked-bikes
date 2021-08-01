@@ -1,10 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace BeSpokedBikes.Domain.Entities
 {
     public class Product
@@ -18,5 +14,6 @@ namespace BeSpokedBikes.Domain.Entities
         public decimal PurchasePrice { get; set; }
         public decimal CommissionPercentage { get; set; }
         public int Quantity { get; set; }
+        public virtual List<Sale> Sales { get; set; }
     }
 }
