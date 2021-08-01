@@ -23,7 +23,7 @@
 
         ProductDialog.onConfirm = () => {
             var data = $('#product-form').serializeObject();
-
+            data.CommissionPercentage = data.CommissionPercentage.replace("%", "")
             $.ajax({
                 url: "/editProduct",
                 type: "POST",
